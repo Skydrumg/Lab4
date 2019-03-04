@@ -1,0 +1,23 @@
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\bin\Debug\CustomerList.exe.config
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\bin\Debug\CustomerList.exe
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\bin\Debug\CustomerList.pdb
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\bin\Debug\CustomerList.xml
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.vbprojResolveAssemblyReference.cache
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.frmCustomerList.resources
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.Resources.resources
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.vbproj.GenerateResource.Cache
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.exe
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.xml
+c:\users\paolo\documents\visual studio 2015\Projects\CustomerList\CustomerList\obj\Debug\CustomerList.pdb
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\bin\Debug\CustomerList.exe.config
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\bin\Debug\CustomerList.exe
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\bin\Debug\CustomerList.pdb
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\bin\Debug\CustomerList.xml
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\obj\Debug\CustomerList.vbprojAssemblyReference.cache
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\obj\Debug\CustomerList.frmCustomerList.resources
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\obj\Debug\CustomerList.Resources.resources
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\obj\Debug\CustomerList.vbproj.GenerateResource.cache
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\obj\Debug\CustomerList.vbproj.CoreCompileInputs.cache
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\obj\Debug\CustomerList.exe
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\obj\Debug\CustomerList.xml
+D:\yeet\Memes\books\NETD\labGit\Lab4\CustomerList\obj\Debug\CustomerList.pdb
