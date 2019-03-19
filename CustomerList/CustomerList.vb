@@ -27,7 +27,7 @@ Public Class frmCustomerList
     ''' <param name="e">EventArgs</param>
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
 
-        Dim customer As Customer            ' declare a Customer class
+        Dim customer As Car          ' declare a Customer class
         Dim customerItem As ListViewItem    ' declare a ListViewItem class
 
         ' validate the data in the form
@@ -44,13 +44,13 @@ Public Class frmCustomerList
             If currentCustomerIdentificationNumber.Trim.Length = 0 Then
 
                 ' create a new customer object using the parameterized constructor
-                customer = New Customer(cmbTitles.Text, tbFirstName.Text, tbLastName.Text, chkVIP.Checked)
+                customer = New Car(tbFirstName.Text, cmbTitles.Text, cmbYear.Text, tbLastName.Text, chkVIP.Checked)
 
                 ' add the customer to the customerList collection
                 ' using the identoification number as the key
                 ' which will make the customer object easier to
                 ' find in the customerList collection later
-                customerList.Add(customer.IdentificationNumber.ToString(), customer)
+                customerList.Add(customer.IdentifcationNumber.ToString(), customer)
 
             Else
                 ' if the current customer identification number has a value
@@ -60,14 +60,15 @@ Public Class frmCustomerList
 
                 ' so get the customer from the custmers collection
                 ' using the selected key
-                customer = CType(customerList.Item(currentCustomerIdentificationNumber), Customer)
+                customer = CType(customerList.Item(currentCustomerIdentificationNumber), Car)
 
                 ' update the data in the specific object
                 ' from the controls
-                customer.Title = cmbTitles.Text
-                customer.FirstName = tbFirstName.Text
-                customer.LastName = tbLastName.Text
-                customer.VeryImportantPersonStatus = chkVIP.Checked
+                customer.Make = cmbTitles.Text
+                customer.Year = cmbYear.Text
+                customer.Model = tbFirstName.Text
+                customer.Price = tbLastName.Text
+                customer.IfUsed = chkVIP.Checked
             End If
 
             ' clear the items from the listview control
@@ -81,15 +82,16 @@ Public Class frmCustomerList
                 customerItem = New ListViewItem()
 
                 ' get the customer from the list
-                customer = CType(customerEntry.Value, Customer)
+                customer = CType(customerEntry.Value, Car)
 
                 ' assign the values to the ckecked control
                 ' and the subitems
-                customerItem.Checked = customer.VeryImportantPersonStatus
-                customerItem.SubItems.Add(customer.IdentificationNumber.ToString())
-                customerItem.SubItems.Add(customer.Title)
-                customerItem.SubItems.Add(customer.FirstName)
-                customerItem.SubItems.Add(customer.LastName)
+                customerItem.Checked = customer.IfUsed
+                customerItem.SubItems.Add(customer.IdentifcationNumber.ToString())
+                customerItem.SubItems.Add(customer.Make)
+                customerItem.SubItems.Add(customer.Model)
+                customerItem.SubItems.Add(customer.Price)
+                customerItem.SubItems.Add(customer.Year)
 
                 ' add the new instantiated and populated ListViewItem
                 ' to the listview control
@@ -140,6 +142,7 @@ Public Class frmCustomerList
         tbLastName.Text = String.Empty
         chkVIP.Checked = False
         cmbTitles.SelectedIndex = -1
+        cmbYear.SelectedIndex = -1
         lbResult.Text = String.Empty
 
         currentCustomerIdentificationNumber = String.Empty
@@ -160,6 +163,16 @@ Public Class frmCustomerList
 
             ' If not set the error message
             outputMessage += "Please select the customer's title." & vbCrLf
+
+            ' And, set the return value to false
+            returnValue = False
+
+        End If
+
+        If cmbYear.SelectedIndex = -1 Then
+
+            ' If not set the error message
+            outputMessage += "Please select the cars Year" & vbCrLf
 
             ' And, set the return value to false
             returnValue = False
@@ -264,15 +277,16 @@ Public Class frmCustomerList
         currentCustomerIdentificationNumber = lvwCustomers.Items(lvwCustomers.FocusedItem.Index).SubItems(identificationSubItemIndex).Text
 
         ' Use the customer identification number to get the customer from the collection object
-        Dim customer As Customer = CType(customerList.Item(currentCustomerIdentificationNumber), Customer)
+        Dim customer As Car = CType(customerList.Item(currentCustomerIdentificationNumber), Car)
 
         ' set the controls on the form
-        tbFirstName.Text = customer.FirstName               ' get the first name and set the text box
-        tbLastName.Text = customer.LastName                 ' get the last name and set the text box
-        cmbTitles.Text = customer.Title                     ' get the title and set the combo box
-        chkVIP.Checked = customer.VeryImportantPersonStatus ' get the very important person status and set the combo box
+        tbFirstName.Text = customer.Model           ' get the first name and set the text box
+        tbLastName.Text = customer.Price                 ' get the last name and set the text box
+        cmbTitles.Text = customer.Make
+        cmbYear.Text = customer.Year   ' get the title and set the combo box
+        chkVIP.Checked = customer.IfUsed ' get the very important person status and set the combo box
 
-        lbResult.Text = customer.GetSalutation()
+        lbResult.Text = customer.GetSaluation()
 
 
     End Sub

@@ -1,128 +1,92 @@
 ﻿Option Strict On
-Public Class Customer
 
+Public Class Car
+    Private Shared carCount As Integer
+    Private carIdentifcationNumber As Integer = 0
+    Private carModel As String = String.Empty
+    Private carMake As String = String.Empty
+    Private carYear As String = String.Empty
+    Private carPrice As String = String.Empty
+    Private carIfUsed As Boolean = False
 
-    Private Shared customerCount As Integer                 ' static or shared private variable to hold the number of customers
-    Private customerIdentificationNumber As Integer = 0     ' private variable to hold the customer's identification number
-    Private customertTitle As String = String.Empty         ' private variable to hold the customer's title
-    Private customertFirstName As String = String.Empty     ' private variable to hold the customer's first name
-    Private customertLastName As String = String.Empty      ' private variable to hold the customer's last name
-    Private customertVeryImportantPersonStatus As Boolean = False              ' private variable to hold the customer's status
-
-    ''' <summary>
-    ''' Constructor - Default - creates a new customer object
-    ''' </summary>
-    Public Sub New()
-
-        customerCount += 1      ' increment the shared/static variable counter by 1
-        customerIdentificationNumber = customerCount ' assign the customers id
-
-    End Sub
-
-    ''' <summary>
-    ''' Constructor - Parameterized - creates a new customer object
-    ''' </summary>
-    ''' <param name="title"></param>
-    ''' <param name="firstName"></param>
-    ''' <param name="lastName"></param>
-    ''' <param name="veryImportantPersonStatus"></param>
-    Public Sub New(title As String, firstName As String, lastName As String, veryImportantPersonStatus As Boolean)
-
-        ' call the other constructor 
-        ' to set the customer count and
-        ' to set the customer id
+    Public Sub New(Model As String, Make As String, Year As String, Price As String, IfUsed As Boolean)
         Me.New()
 
-
-        customertTitle = title          ' set the customer title
-        customertFirstName = firstName  ' set the customer first name
-        customertLastName = lastName    ' set the customer last name
-        customertVeryImportantPersonStatus = veryImportantPersonStatus        ' set the customer status
+        carModel = Model
+        carMake = Make
+        carYear = Year
+        carPrice = Price
+        carIfUsed = IfUsed
 
     End Sub
 
+    Public Sub New()
+        carCount += 1
+        carIdentifcationNumber = carCount
+    End Sub
 
-    ''' <summary>
-    ''' Count ReadOnly Property - Gets the number of customers that have been instantiated/created
-    ''' </summary>
-    ''' <returns>Integer</returns>
-    Public ReadOnly Property Count() As Integer
-        Get
-            Return customerCount
-        End Get
-    End Property
+    Public Property IfUsed() As Boolean
 
-    ''' <summary>
-    ''' IdentificationNumber ReadOnly Property - Gets a specific customers identification number
-    ''' </summary>
-    ''' <returns>Integer</returns>
-    Public ReadOnly Property IdentificationNumber() As Integer
         Get
-            Return customerIdentificationNumber
-        End Get
-    End Property
-
-    ''' <summary>
-    ''' VeryImportantPersonStatus Property - >Gets and Sets the Very Important Person status of a customer
-    ''' </summary>
-    ''' <returns>Boolean</returns>
-    Public Property VeryImportantPersonStatus() As Boolean
-        Get
-            Return customertVeryImportantPersonStatus
+            Return carIfUsed
         End Get
         Set(ByVal value As Boolean)
-            customertVeryImportantPersonStatus = value
+            carIfUsed = value
         End Set
+
     End Property
 
-    ''' <summary>
-    ''' Title property - Gets and Sets the title of a customer
-    ''' </summary>
-    ''' <returns>String</returns>
-    Public Property Title() As String
+    Public ReadOnly Property Count() As Integer
         Get
-            Return customertTitle
+            Return carCount
+        End Get
+    End Property
+
+    Public ReadOnly Property IdentifcationNumber() As Integer
+        Get
+            Return carIdentifcationNumber
+        End Get
+    End Property
+
+    Public Property Make() As String
+        Get
+            Return carMake
         End Get
         Set(ByVal value As String)
-            customertTitle = value
+            carMake = value
         End Set
     End Property
 
-    ''' <summary>
-    ''' FirstName property - Gets and Sets the first name of a customer
-    ''' </summary>
-    ''' <returns>String</returns>
-    Public Property FirstName() As String
+    Public Property Model() As String
         Get
-            Return customertFirstName
+            Return carModel
         End Get
         Set(ByVal value As String)
-            customertFirstName = value
+            carModel = value
         End Set
     End Property
 
-    ''' <summary>
-    ''' LastName property - Gets and Sets the last name of a customer
-    ''' </summary>
-    ''' <returns>String</returns>
-    Public Property LastName() As String
+    Public Property Year As String
         Get
-            Return customertLastName
+            Return carYear
         End Get
         Set(ByVal value As String)
-            customertLastName = value
+            carYear = value
+        End Set
+
+    End Property
+
+    Public Property Price As String
+        Get
+            Return carPrice
+        End Get
+        Set(ByVal value As String)
+            carPrice = value
         End Set
     End Property
 
-    ''' <summary>
-    ''' GetSalutation is a function that a salutation based on the private properties within the class scope
-    ''' </summary>
-    ''' <returns>String</returns>
-    Public Function GetSalutation() As String
+    Public Function GetSaluation() As String
 
-        Return "Hi my name is " & customertTitle & " " & customertFirstName & " " & customertLastName & ", " & IIf(customertVeryImportantPersonStatus = True, "I am a VIP", "I am not a VIP").ToString()
-
+        Return "This car is " & carMake & " " & carModel & " " & carYear & " " & IIf(carIfUsed = True, "this is used", "this is new").ToString()
     End Function
-
-
 End Class

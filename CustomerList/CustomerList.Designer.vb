@@ -41,11 +41,14 @@ Partial Class frmCustomerList
         Me.colLastName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.CustomerToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.lbResult = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.cmbYear = New System.Windows.Forms.ComboBox()
+        Me.colYear = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.SuspendLayout()
         '
         'btnEnter
         '
-        Me.btnEnter.Location = New System.Drawing.Point(95, 422)
+        Me.btnEnter.Location = New System.Drawing.Point(62, 452)
         Me.btnEnter.Name = "btnEnter"
         Me.btnEnter.Size = New System.Drawing.Size(75, 23)
         Me.btnEnter.TabIndex = 9
@@ -56,7 +59,7 @@ Partial Class frmCustomerList
         'btnReset
         '
         Me.btnReset.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.btnReset.Location = New System.Drawing.Point(176, 422)
+        Me.btnReset.Location = New System.Drawing.Point(143, 452)
         Me.btnReset.Name = "btnReset"
         Me.btnReset.Size = New System.Drawing.Size(75, 23)
         Me.btnReset.TabIndex = 10
@@ -66,7 +69,7 @@ Partial Class frmCustomerList
         '
         'btnExit
         '
-        Me.btnExit.Location = New System.Drawing.Point(257, 422)
+        Me.btnExit.Location = New System.Drawing.Point(224, 452)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 11
@@ -84,7 +87,7 @@ Partial Class frmCustomerList
         '
         'tbLastName
         '
-        Me.tbLastName.Location = New System.Drawing.Point(84, 60)
+        Me.tbLastName.Location = New System.Drawing.Point(84, 87)
         Me.tbLastName.Name = "tbLastName"
         Me.tbLastName.Size = New System.Drawing.Size(121, 20)
         Me.tbLastName.TabIndex = 5
@@ -94,7 +97,7 @@ Partial Class frmCustomerList
         '
         Me.cmbTitles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cmbTitles.FormattingEnabled = True
-        Me.cmbTitles.Items.AddRange(New Object() {"Mr.", "Mrs.", "Miss.", "Ms.", "Mstr.", "Dr."})
+        Me.cmbTitles.Items.AddRange(New Object() {"Elon Musk", "Fiat", "Jeep", "Chevy", "Dodge", "VW", "Traxxas"})
         Me.cmbTitles.Location = New System.Drawing.Point(84, 7)
         Me.cmbTitles.Name = "cmbTitles"
         Me.cmbTitles.Size = New System.Drawing.Size(121, 21)
@@ -107,7 +110,7 @@ Partial Class frmCustomerList
         Me.lbTitle.Name = "lbTitle"
         Me.lbTitle.Size = New System.Drawing.Size(66, 13)
         Me.lbTitle.TabIndex = 0
-        Me.lbTitle.Text = "&Title: "
+        Me.lbTitle.Text = "&Make:"
         Me.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'lblFirstName
@@ -116,27 +119,27 @@ Partial Class frmCustomerList
         Me.lblFirstName.Name = "lblFirstName"
         Me.lblFirstName.Size = New System.Drawing.Size(66, 13)
         Me.lblFirstName.TabIndex = 2
-        Me.lblFirstName.Text = "&First Name: "
+        Me.lblFirstName.Text = "&Model:"
         Me.lblFirstName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.lblFirstName.UseWaitCursor = True
         '
         'lbLastName
         '
-        Me.lbLastName.Location = New System.Drawing.Point(12, 63)
+        Me.lbLastName.Location = New System.Drawing.Point(12, 90)
         Me.lbLastName.Name = "lbLastName"
         Me.lbLastName.Size = New System.Drawing.Size(66, 13)
         Me.lbLastName.TabIndex = 4
-        Me.lbLastName.Text = "&Last Name: "
+        Me.lbLastName.Text = "&Price:"
         Me.lbLastName.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'chkVIP
         '
         Me.chkVIP.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.chkVIP.Location = New System.Drawing.Point(51, 83)
+        Me.chkVIP.Location = New System.Drawing.Point(38, 110)
         Me.chkVIP.Name = "chkVIP"
-        Me.chkVIP.Size = New System.Drawing.Size(46, 24)
+        Me.chkVIP.Size = New System.Drawing.Size(59, 24)
         Me.chkVIP.TabIndex = 6
-        Me.chkVIP.Text = "&VIP:"
+        Me.chkVIP.Text = "&Used:"
         Me.chkVIP.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.CustomerToolTip.SetToolTip(Me.chkVIP, "Check to make the customer a VIP.")
         Me.chkVIP.UseVisualStyleBackColor = True
@@ -144,13 +147,13 @@ Partial Class frmCustomerList
         'lvwCustomers
         '
         Me.lvwCustomers.CheckBoxes = True
-        Me.lvwCustomers.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colVIP, Me.colID, Me.colTitle, Me.colFirstName, Me.colLastName})
+        Me.lvwCustomers.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colVIP, Me.colID, Me.colTitle, Me.colFirstName, Me.colLastName, Me.colYear})
         Me.lvwCustomers.FullRowSelect = True
         Me.lvwCustomers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable
-        Me.lvwCustomers.Location = New System.Drawing.Point(2, 108)
+        Me.lvwCustomers.Location = New System.Drawing.Point(3, 140)
         Me.lvwCustomers.MultiSelect = False
         Me.lvwCustomers.Name = "lvwCustomers"
-        Me.lvwCustomers.Size = New System.Drawing.Size(330, 246)
+        Me.lvwCustomers.Size = New System.Drawing.Size(365, 237)
         Me.lvwCustomers.TabIndex = 7
         Me.CustomerToolTip.SetToolTip(Me.lvwCustomers, "Select a customer to modify.")
         Me.lvwCustomers.UseCompatibleStateImageBehavior = False
@@ -158,7 +161,7 @@ Partial Class frmCustomerList
         '
         'colVIP
         '
-        Me.colVIP.Text = "VIP"
+        Me.colVIP.Text = "Used"
         '
         'colID
         '
@@ -166,24 +169,48 @@ Partial Class frmCustomerList
         '
         'colTitle
         '
-        Me.colTitle.Text = "Title"
+        Me.colTitle.Text = "Make"
         '
         'colFirstName
         '
-        Me.colFirstName.Text = "FirstName"
+        Me.colFirstName.Text = "Model"
         '
         'colLastName
         '
-        Me.colLastName.Text = "Last Name"
+        Me.colLastName.Text = "Price"
         '
         'lbResult
         '
         Me.lbResult.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.lbResult.Location = New System.Drawing.Point(2, 357)
+        Me.lbResult.Location = New System.Drawing.Point(3, 389)
         Me.lbResult.Name = "lbResult"
-        Me.lbResult.Size = New System.Drawing.Size(330, 60)
+        Me.lbResult.Size = New System.Drawing.Size(365, 51)
         Me.lbResult.TabIndex = 8
         Me.CustomerToolTip.SetToolTip(Me.lbResult, "Success or Error message will appear here.")
+        '
+        'Label1
+        '
+        Me.Label1.Location = New System.Drawing.Point(12, 60)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(66, 13)
+        Me.Label1.TabIndex = 12
+        Me.Label1.Text = "&Year"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cmbYear
+        '
+        Me.cmbYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbYear.FormattingEnabled = True
+        Me.cmbYear.Items.AddRange(New Object() {"1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019"})
+        Me.cmbYear.Location = New System.Drawing.Point(84, 60)
+        Me.cmbYear.Name = "cmbYear"
+        Me.cmbYear.Size = New System.Drawing.Size(121, 21)
+        Me.cmbYear.TabIndex = 13
+        Me.CustomerToolTip.SetToolTip(Me.cmbYear, "Select the customer's title.")
+        '
+        'colYear
+        '
+        Me.colYear.Text = "Year"
         '
         'frmCustomerList
         '
@@ -191,7 +218,9 @@ Partial Class frmCustomerList
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.btnReset
-        Me.ClientSize = New System.Drawing.Size(334, 452)
+        Me.ClientSize = New System.Drawing.Size(369, 487)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.cmbYear)
         Me.Controls.Add(Me.lbResult)
         Me.Controls.Add(Me.lvwCustomers)
         Me.Controls.Add(Me.chkVIP)
@@ -232,4 +261,7 @@ Partial Class frmCustomerList
     Friend WithEvents colTitle As ColumnHeader
     Friend WithEvents CustomerToolTip As ToolTip
     Friend WithEvents lbResult As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cmbYear As ComboBox
+    Friend WithEvents colYear As ColumnHeader
 End Class
